@@ -1,6 +1,6 @@
 async function initWasm() {
     const go = new Go();
-    const response = await fetch('./main.wasm');
+    const response = await fetch('main.wasm');
     const buffer = await response.arrayBuffer();
     const wasmObj = await WebAssembly.instantiate(buffer, go.importObject);
     go.run(wasmObj.instance);
